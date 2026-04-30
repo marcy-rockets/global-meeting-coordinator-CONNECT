@@ -52,6 +52,10 @@ body {
   .bg-success {
     @apply bg-emerald-400;
   }
+
+  .blob {
+    @apply fixed rounded-full blur-[100px] opacity-20 -z-10 animate-pulse;
+  }
 }
 
 /* Custom Scrollbar */
