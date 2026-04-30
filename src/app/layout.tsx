@@ -18,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${inter.variable} ${outfit.variable} antialiased`}>
-        <div className="blob w-[400px] h-[400px] bg-accent-primary -top-24 -left-24"></div>
-        <div className="blob w-[350px] h-[350px] bg-purple-600 -bottom-12 -right-12 [animation-delay:-5s]"></div>
+      <body className={`${inter.variable} ${outfit.variable} antialiased bg-background text-white min-h-screen relative overflow-x-hidden`}>
+        <div className="blob w-[400px] h-[400px] bg-indigo-600 -top-24 -left-24"></div>
+        <div className="blob w-[350px] h-[350px] bg-purple-600 -bottom-12 -right-12" style={{ animationDelay: '-5s' }}></div>
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -53,9 +53,15 @@ body {
     @apply bg-emerald-400;
   }
 
-  .blob {
-    @apply fixed rounded-full blur-[100px] opacity-20 -z-10 animate-pulse;
-  }
+}
+
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+  z-index: -10;
+  pointer-events: none;
 }
 
 /* Custom Scrollbar */
