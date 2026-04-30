@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   title: "Global Meeting Coordinator CONNECT",
   description: "Advanced meeting coordination with Google and Microsoft Calendar integration.",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/favicon-v2.ico",
+    shortcut: "/favicon-v2.ico",
     apple: "/icon.png",
   },
 };
