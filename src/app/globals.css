@@ -64,6 +64,12 @@ body {
   pointer-events: none;
 }
 
+/* Date Picker Icon Styling */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
 /* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
