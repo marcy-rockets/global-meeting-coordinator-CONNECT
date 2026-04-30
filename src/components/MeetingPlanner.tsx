@@ -65,7 +65,9 @@ const TRANSLATIONS = {
     eventTitle: 'Global Meeting',
     holidayLabel: '祝日',
     fetchingHolidays: '祝日取得中...',
-    publicHoliday: '公的祝日: '
+    publicHoliday: '公的祝日: ',
+    todayBtn: '今日',
+    nowBtn: '今'
   },
   en: {
     title: 'Global Meeting Coordinator',
@@ -93,7 +95,9 @@ const TRANSLATIONS = {
     eventTitle: 'Global Meeting',
     holidayLabel: 'Holiday',
     fetchingHolidays: 'Updating holidays...',
-    publicHoliday: 'Public Holiday: '
+    publicHoliday: 'Public Holiday: ',
+    todayBtn: 'Today',
+    nowBtn: 'Now'
   }
 };
 
@@ -325,7 +329,15 @@ export default function MeetingPlanner() {
         <div className="lg:col-span-4 space-y-6">
           <div className="card glass p-8 rounded-[32px] space-y-6 border border-white/10">
             <div className="space-y-3">
-              <label className="text-[11px] font-black text-indigo-400 uppercase tracking-widest">{t.dateLabel}</label>
+              <div className="flex items-center justify-between">
+                <label className="text-[11px] font-black text-indigo-400 uppercase tracking-widest">{t.dateLabel}</label>
+                <button
+                  onClick={() => setBaseDate(DateTime.now().toISODate())}
+                  className="text-[10px] font-black px-2.5 py-1 bg-indigo-500/10 hover:bg-indigo-500/25 text-indigo-400 rounded-lg transition-all border border-indigo-500/20 uppercase tracking-widest"
+                >
+                  {t.todayBtn}
+                </button>
+              </div>
               <input 
                 type="date" 
                 value={baseDate ?? ''} 
@@ -335,7 +347,20 @@ export default function MeetingPlanner() {
             </div>
             
             <div className="space-y-3">
-              <label className="text-[11px] font-black text-indigo-400 uppercase tracking-widest">{t.timeLabel}</label>
+              <div className="flex items-center justify-between">
+                <label className="text-[11px] font-black text-indigo-400 uppercase tracking-widest">{t.timeLabel}</label>
+                <button
+                  onClick={() => {
+                    const now = DateTime.now();
+                    const roundedMinutes = Math.floor(now.minute / 15) * 15;
+                    setBaseHour(now.hour.toString().padStart(2, '0'));
+                    setBaseMinute(roundedMinutes.toString().padStart(2, '0'));
+                  }}
+                  className="text-[10px] font-black px-2.5 py-1 bg-indigo-500/10 hover:bg-indigo-500/25 text-indigo-400 rounded-lg transition-all border border-indigo-500/20 uppercase tracking-widest"
+                >
+                  {t.nowBtn}
+                </button>
+              </div>
               <div className="flex items-center gap-3">
                 <select 
                   value={baseHour}
