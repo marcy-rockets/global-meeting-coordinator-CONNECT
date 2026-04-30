@@ -32,7 +32,7 @@ const handler = NextAuth({
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({ session, token }: any) {
       session.accessToken = token.accessToken as string;
       session.provider = token.provider as string;
       return session;
